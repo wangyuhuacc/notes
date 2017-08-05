@@ -1,0 +1,8 @@
+webpack 安装
+ 
+1.首先初始化文件夹（npm install init)，安装 (npm install webpack --save-dev);
+2.建立webpack 的配置文件 config.js  需要的几个基本参数 entry:'./src/doc/main.js'(入口文件)，output :{path:'打包后存放文件的地址',filename:'打包后的文件名'（如果entry是多输入，则需要在加[name]-[hash]-[chunkhash]防止同名覆盖）}，chunkhash可以看成是每个文件的MD5值，保证每个文件的唯一性
+3.安装html-webpack-plugin 插件 。 配置属性（template,filename,favicon,title,inject,hash,chunks）
+4.处理模板文件 先安装html-loader ,再添加匹配规则在webpack配置文件中。有时还会用到模板语法，需要安装对应的loader 配置语法规则
+5.处理图片以及其他文件 安装file-loader（url-loader），配置规则。如果图片位置为相对路径，且在模板中引用格式:<img src='${require('相对路径')}'/> image-webpack-loader :  压缩图片
+6.对css less sass 安装 对应的loader 加上style-loader（自动生成style 嵌在html 头部）
